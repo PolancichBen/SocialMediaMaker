@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script
+  src="https://code.jquery.com/jquery-3.5.0.slim.min.js" integrity="sha256-MlusDLJIP1GRgLrOflUQtshyP0TwT/RHXsI1wWGnQhs=" crossorigin="anonymous"></script>
+    <script src="SocialMediaMaker.js"></script>
+    <link rel="stylesheet" type="text/css" href="SocialMedia.css">
+    <title>Social Media Generator</title>
+</head>
+
+<body>
+    <div class="newPosts">
+        <script>
+            $(document).ready(function () {
+                var $body = $('body');
+                var $newPosts = $('.newPosts');
+                var index = streams.home.length - 1;
+                console.log (streams.users.ecoChemPro)
+                var tweet = streams.users.ecoChemPro;
+
+                for (var i = 0; i < tweet.length; i++){
+                    var $tweet = $('<div class =' + tweet[i].message + '></div>');
+                    console.log(tweet[i].message);
+                    $tweet.text(tweet[i].message);
+                    $tweet.appendTo($newPosts);
+                    index -= 1;
+                }
+
+                var autoupdate = setInterval(function () {
+                    var index = streams.home.length - 1;
+                    var $tweet = $('<div class = ' + tweet[tweet.length-1].message + '></div>');
+                    $tweet.text(tweet[tweet.length-1].message);
+                    $tweet.appendTo($newPosts);
+                }, 5000);
+
+            })
+        </script>
+    </div>
+</body>
+
+</html>
